@@ -18,6 +18,15 @@
             {
                 "tipo": "copa",
                 "ano": 2018
+            },
+            {
+                "tipo": "liga",
+                "ano": 2024
+            },
+            
+            {
+                "tipo": "copa",
+                "ano": 2024
             }
         ]
     },
@@ -93,7 +102,7 @@
         "trofeus": [
             {
                 "tipo": "liga",
-                "ano": 2022
+                "ano": 2023
             }
         ]
     },
