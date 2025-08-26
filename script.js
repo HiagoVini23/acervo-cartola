@@ -33,17 +33,29 @@ function calcularPontuacao(trofeus) {
     return pontuacao;
 }
 
+function agruparTrofeus(trofeus) {
+    // Separa ligas e copas
+    const ligas = trofeus.filter(trofeu => trofeu.tipo === 'liga').sort((a, b) => a.ano - b.ano); // Mais antigo primeiro
+    const copas = trofeus.filter(trofeu => trofeu.tipo === 'copa').sort((a, b) => a.ano - b.ano); // Mais antigo primeiro
+    
+    // Retorna ligas primeiro (do mais antigo ao mais novo), depois copas (do mais antigo ao mais novo)
+    return [...ligas, ...copas];
+}
+
 function renderizarJogadores(jogadores) {
     const container = document.getElementById('jogadores-container');
     
     jogadores.forEach(jogador => {
+        // Agrupa os troféus: ligas primeiro, depois copas
+        const trofeusAgrupados = agruparTrofeus(jogador.trofeus);
+        
         const cardHTML = `
             <div class="card-jogador">
                 <img src="${jogador.imagem_escudo}" alt="Escudo do ${jogador.nome}" class="escudo">
                 <div class="info-jogador">
                     <h3>${jogador.nome}</h3>
                     <div class="trofeus">
-                        ${jogador.trofeus.map(trofeu => `
+                        ${trofeusAgrupados.map(trofeu => `
                             <div class="trofeu-item">
                                 <img src="figures/${trofeu.tipo}.png" alt="Troféu ${trofeu.tipo}">
                                 <span>${trofeu.ano}</span>
@@ -58,4 +70,31 @@ function renderizarJogadores(jogadores) {
     });
 }
 
-document.addEventListener('DOMContentLoaded', carregarDados);
+// Funcionalidade do botão voltar ao topo
+function iniciarBotaoTopo() {
+    const btnTopo = document.getElementById('btn-topo');
+    
+    if (btnTopo) {
+        // Mostrar/esconder botão baseado no scroll
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                btnTopo.classList.add('show');
+            } else {
+                btnTopo.classList.remove('show');
+            }
+        });
+        
+        // Ação do clique - voltar ao topo
+        btnTopo.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    carregarDados();
+    iniciarBotaoTopo();
+});
