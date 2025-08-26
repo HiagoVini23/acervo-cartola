@@ -1,0 +1,132 @@
+[
+    {
+        "nome": "Fagner",
+        "imagem_escudo": "figures/fagner.png",
+        "trofeus": [
+            {
+                "tipo": "liga",
+                "ano": 2013
+            },
+            {
+                "tipo": "liga",
+                "ano": 2021
+            },
+            {
+                "tipo": "copa",
+                "ano": 2017
+            },
+            {
+                "tipo": "copa",
+                "ano": 2018
+            }
+        ]
+    },
+    {
+        "nome": "Hiago",
+        "imagem_escudo": "figures/hiago.png",
+        "trofeus": [
+            {
+                "tipo": "liga",
+                "ano": 2016
+            },
+            {
+                "tipo": "copa",
+                "ano": 2022
+            }
+        ]
+    },
+    {
+        "nome": "André",
+        "imagem_escudo": "figures/carlos.png",
+        "trofeus": [
+            {
+                "tipo": "liga",
+                "ano": 2020
+            },
+            {
+                "tipo": "copa",
+                "ano": 2017
+            },
+            {
+                "tipo": "copa",
+                "ano": 2021
+            },
+            {
+                "tipo": "copa",
+                "ano": 2023
+            }
+        ]
+    },
+    {
+        "nome": "Douglas",
+        "imagem_escudo": "figures/douglas.png",
+        "trofeus": [
+            {
+                "tipo": "liga",
+                "ano": 2015
+            }
+        ]
+    },
+    {
+        "nome": "Berg",
+        "imagem_escudo": "figures/berg.png",
+        "trofeus": [
+            {
+                "tipo": "liga",
+                "ano": 2018
+            }
+        ]
+    },
+    {
+        "nome": "Túlio",
+        "imagem_escudo": "figures/tulio.png",
+        "trofeus": [
+            {
+                "tipo": "liga",
+                "ano": 2022
+            }
+        ]
+    },
+    {
+        "nome": "Fabinho",
+        "imagem_escudo": "figures/fabinho.png",
+        "trofeus": [
+            {
+                "tipo": "liga",
+                "ano": 2022
+            }
+        ]
+    },
+    {
+        "nome": "Alcides",
+        "imagem_escudo": "figures/alcides.png",
+        "trofeus": [
+            {
+                "tipo": "liga",
+                "ano": 2014
+            }
+        ]
+    },
+    {
+        "nome": "Guilherme",
+        "imagem_escudo": "figures/guilherme.png",
+        "trofeus": [
+            {
+                "tipo": "liga",
+                "ano": 2017
+            },
+            {
+                "tipo": "liga",
+                "ano": 2019
+            },
+            {
+                "tipo": "copa",
+                "ano": 2019
+            },
+            {
+                "tipo": "copa",
+                "ano": 2020
+            }
+        ]
+    }
+]
