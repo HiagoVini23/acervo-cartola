@@ -5,23 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acervo de Troféus</title>
     <link rel="stylesheet" href="index.css">
+    <link rel="preload" href="./database.json" as="fetch" crossorigin="anonymous">
 </head>
 <body>
     <div class="container">
         <h1 class="titulo-principal">Acervo de Troféus</h1>
         
+        <!-- Navegação -->
+        <nav class="navegacao">
+            <a href="index.html" class="nav-link active">Acervo por Jogador</a>
+            <a href="cronologia.html" class="nav-link">Cronologia</a>
+        </nav>
+        
         <!-- Legenda dos Troféus -->
         <div class="legenda-cantinho">
             <div class="legenda-item">
-                <img src="figures/liga.png" alt="Troféu Liga">
+                <img src="figures/liga.png" alt="Troféu Liga" loading="lazy">
                 <span>Liga<br>Clássica</span>
             </div>
             <div class="legenda-item">
-                <img src="figures/liga-corridos.png" alt="Troféu Liga de Pontos Corridos">
-                <span>Liga de<br>Pontos</span>
+                <img src="figures/liga-corridos.png" alt="Troféu Liga de Pontos Corridos" loading="lazy">
+                <span>Pontos<br>Corridos</span>
             </div>
             <div class="legenda-item">
-                <img src="figures/copa.png" alt="Troféu Copa">
+                <img src="figures/copa.png" alt="Troféu Copa" loading="lazy">
                 <span>Copa</span>
             </div>
         </div>
@@ -31,6 +38,9 @@
         </div>
     </div>
 
+    <button id="btn-topo" class="btn-topo" title="Voltar ao topo">↑</button>
+
+    <script src="dataManager.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

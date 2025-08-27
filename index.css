@@ -22,15 +22,16 @@ body {
   font-size: clamp(2rem, 8vw, 3.5rem);
   font-weight: 800;
   text-align: center;
-  margin-bottom: clamp(30px, 6vw, 60px);
+  margin-bottom: clamp(20px, 4vw, 30px);
   text-shadow: 0 4px 20px rgba(251, 191, 36, 0.5);
   background: linear-gradient(135deg, #fbbf24, #f59e0b, #d97706);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   letter-spacing: 1px;
-  position: relative;
-  line-height: 1.2;
+  line-height: 1.3;
+  padding-bottom: 0.1em;
+  overflow: visible;
 }
 
 .titulo-principal::after {
@@ -241,6 +242,76 @@ body {
   text-shadow: 0 1px 2px rgba(0,0,0,0.5);
 }
 
+.navegacao {
+  display: flex;
+  gap: 20px;
+  margin-bottom: clamp(20px, 4vw, 30px);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 12px;
+  border-radius: 25px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  font-size: clamp(12px, 2.5vw, 14px);
+}
+
+.nav-link:hover {
+  color: #ffffff;
+  background: rgba(251, 191, 36, 0.2);
+}
+
+.nav-link.active {
+  color: #000000;
+  background: rgba(251, 191, 36, 0.9);
+}
+
+.btn-topo {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: rgba(251, 191, 36, 0.9);
+  border: none;
+  border-radius: 50%;
+  color: #000000;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(251, 191, 36, 0.3);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-topo.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.btn-topo:hover {
+  background: rgba(251, 191, 36, 1);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(251, 191, 36, 0.4);
+}
+
+.btn-topo:active {
+  transform: translateY(-1px);
+}
+
 /* Tablets */
 @media (max-width: 768px) {
   .container {
@@ -276,6 +347,14 @@ body {
   
   .legenda-cantinho .legenda-item span {
     font-size: 8px;
+  }
+  
+  .btn-topo {
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
   }
 }
 
@@ -315,6 +394,14 @@ body {
     max-width: 120px;
     gap: 5px;
     padding: 5px;
+  }
+  
+  .btn-topo {
+    bottom: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
   }
 }
 

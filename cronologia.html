@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronologia dos Troféus</title>
+    <link rel="stylesheet" href="cronologia.css">
+    <link rel="preload" href="./database.json" as="fetch" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h1 class="titulo-principal">Cronologia dos Troféus</h1>
+        
+        <!-- Navegação -->
+        <nav class="navegacao">
+            <a href="index.html" class="nav-link">Acervo por Jogador</a>
+            <a href="cronologia.html" class="nav-link active">Cronologia</a>
+        </nav>
+        <!-- Timeline dos Troféus -->
+        <div id="timeline-container">
+            <!-- Os troféus serão carregados aqui pelo JavaScript -->
+        </div>
+    </div>
+
+    <button id="btn-topo" class="btn-topo" title="Voltar ao topo">↑</button>
+
+    <script src="dataManager.js"></script>
+    <script src="cronologia.js"></script>
+</body>
+</html>
