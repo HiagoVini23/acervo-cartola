@@ -25,7 +25,11 @@ function calcularPontuacao(trofeus) {
     trofeus.forEach(trofeu => {
         if (trofeu.tipo === 'liga') {
             pontuacao += 3; // Liga vale 3 pontos
-        } else if (trofeu.tipo === 'copa') {
+        }
+        else if(trofeu.tipo === 'liga-corridos') {
+            pontuacao += 2;
+        }
+        else if (trofeu.tipo === 'copa') {
             pontuacao += 1; // Copa vale 1 ponto
         }
     });
@@ -36,10 +40,11 @@ function calcularPontuacao(trofeus) {
 function agruparTrofeus(trofeus) {
     // Separa ligas e copas
     const ligas = trofeus.filter(trofeu => trofeu.tipo === 'liga').sort((a, b) => a.ano - b.ano); // Mais antigo primeiro
-    const copas = trofeus.filter(trofeu => trofeu.tipo === 'copa').sort((a, b) => a.ano - b.ano); // Mais antigo primeiro
-    
+    const copas = trofeus.filter(trofeu => trofeu.tipo === 'copa').sort((a, b) => a.ano - b.ano);
+    const ligasCorridos = trofeus.filter(trofeu => trofeu.tipo === 'liga-corridos').sort((a, b) => a.ano - b.ano); // Mais antigo primeiro
+
     // Retorna ligas primeiro (do mais antigo ao mais novo), depois copas (do mais antigo ao mais novo)
-    return [...ligas, ...copas];
+    return [...ligas, ...copas, ...ligasCorridos];
 }
 
 function renderizarJogadores(jogadores) {

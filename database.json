@@ -87,6 +87,16 @@
         ]
     },
     {
+        "nome": "Pastor Willian",
+        "imagem_escudo": "figures/will.png",
+        "trofeus": [
+            {
+                "tipo": "liga-corridos",
+                "ano": 2024
+            }
+        ]
+    },
+    {
         "nome": "Túlio",
         "imagem_escudo": "figures/tulio.png",
         "trofeus": [
