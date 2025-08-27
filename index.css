@@ -80,6 +80,7 @@ body {
   color: #ffffff;
   font-size: clamp(1.2rem, 4vw, 1.8rem);
   margin-bottom: clamp(15px, 3vw, 20px);
+  margin-top: 0px;
   font-weight: 600;
   text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
@@ -87,7 +88,7 @@ body {
 .escudo {
   width: clamp(60px, 12vw, 90px);
   height: clamp(60px, 12vw, 90px);
-  margin-right: clamp(15px, 4vw, 30px);
+  margin-right: clamp(12px, 3vw, 20px); /* Reduzido de 15px-30px para 12px-20px */
   border-radius: 50%;
   border: 2px solid rgba(251, 191, 36, 0.3);
   box-shadow: 0 6px 15px rgba(0,0,0,0.3);
@@ -293,7 +294,7 @@ body {
   
   .escudo {
     margin-right: 0;
-    margin-bottom: 15px;
+    margin-bottom: 10px; /* Reduzido de 15px para 10px */
   }
   
   .info-jogador {
