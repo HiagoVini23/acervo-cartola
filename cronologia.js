@@ -23,33 +23,78 @@ function processarCronologia(jogadores) {
         }
     }
     
-    todosTrofeus.sort((a, b) => b.ano - a.ano);
-    renderizarCronologia(todosTrofeus);
+    // Agrupa troféus por ano
+    const trofeusPorAno = {};
+    
+    for (const trofeu of todosTrofeus) {
+        if (!trofeusPorAno[trofeu.ano]) {
+            trofeusPorAno[trofeu.ano] = [];
+        }
+        trofeusPorAno[trofeu.ano].push(trofeu);
+    }
+    
+    // Ordena os anos (mais recente primeiro) e ordena troféus dentro de cada ano
+    const anosOrdenados = Object.keys(trofeusPorAno)
+        .sort((a, b) => b - a)
+        .map(ano => ({
+            ano: parseInt(ano),
+            trofeus: trofeusPorAno[ano].sort((a, b) => {
+                // Ordena por tipo: liga primeiro, depois liga-corridos, depois copa
+                const ordem = { 'liga': 1, 'liga-corridos': 2, 'copa': 3 };
+                return (ordem[a.tipo] || 4) - (ordem[b.tipo] || 4);
+            })
+        }));
+    
+    renderizarCronologia(anosOrdenados);
 }
 
-function renderizarCronologia(trofeus) {
+function renderizarCronologia(dadosPorAno) {
     const container = document.getElementById('timeline-container');
     const fragment = document.createDocumentFragment();
     
-    trofeus.forEach(trofeu => {
-        const tipoFormatado = window.dataManager.formatarTipo(trofeu.tipo);
+    dadosPorAno.forEach(({ ano, trofeus }) => {
+        // Container do ano
+        const anoDiv = document.createElement('div');
+        anoDiv.className = 'ano-container';
         
-        const itemDiv = document.createElement('div');
-        itemDiv.className = 'timeline-item';
-        
-        itemDiv.innerHTML = `
-            <div class="timeline-year">${trofeu.ano}</div>
-            <div class="timeline-trofeu">
-                <img src="figures/${trofeu.tipo}.png" alt="Troféu ${trofeu.tipo}" loading="lazy">
-            </div>
-            <div class="timeline-campeao">
-                <img src="${trofeu.campeao.escudo}" alt="Escudo ${trofeu.campeao.nome}" class="campeao-escudo" loading="lazy">
-                <span class="campeao-nome">${trofeu.campeao.nome}</span>
-            </div>
-            <div class="tipo-badge">${tipoFormatado}</div>
+        // Cabeçalho do ano
+        const anoHeader = document.createElement('div');
+        anoHeader.className = 'ano-header';
+        anoHeader.innerHTML = `
+            <h2 class="ano-titulo">${ano}</h2>
+            <div class="ano-contador">${trofeus.length} troféu${trofeus.length > 1 ? 's' : ''}</div>
         `;
+        anoDiv.appendChild(anoHeader);
         
-        fragment.appendChild(itemDiv);
+        // Container dos troféus do ano
+        const trofeusContainer = document.createElement('div');
+        trofeusContainer.className = 'trofeus-ano';
+        
+        trofeus.forEach(trofeu => {
+            const tipoFormatado = window.dataManager.formatarTipo(trofeu.tipo);
+            
+            const trofeuDiv = document.createElement('div');
+            trofeuDiv.className = 'trofeu-item-timeline';
+            
+            trofeuDiv.innerHTML = `
+                <div class="trofeu-icon">
+                    <img src="figures/${trofeu.tipo}.png" alt="Troféu ${trofeu.tipo}" loading="lazy">
+                </div>
+                
+                <div class="trofeu-info">
+                    <div class="tipo-badge">${tipoFormatado}</div>
+                    <div class="campeao-info">
+                        <img src="${trofeu.campeao.escudo}" alt="Escudo ${trofeu.campeao.nome}" class="campeao-escudo-mini" loading="lazy">
+                        <span class="campeao-nome-mini">${trofeu.campeao.nome}</span>
+                    </div>
+                </div>
+            `;
+            
+            trofeusContainer.appendChild(trofeuDiv);
+        });
+        
+        anoDiv.appendChild(trofeusContainer);
+        fragment.appendChild(anoDiv);
     });
     
     container.appendChild(fragment);

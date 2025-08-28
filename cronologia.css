@@ -74,129 +74,124 @@ body {
   position: relative;
 }
 
-.timeline-item {
-  display: flex;
-  align-items: center;
-  margin-bottom: clamp(20px, 4vw, 35px);
-  position: relative;
-  padding: clamp(15px, 3vw, 25px);
+.ano-container {
+  margin-bottom: clamp(30px, 6vw, 50px);
   background: rgba(30, 30, 30, 0.9);
-  border-radius: 15px;
+  border-radius: 20px;
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
   transition: all 0.3s ease;
 }
 
-.timeline-item:hover {
+.ano-container:hover {
   transform: translateY(-3px);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
   border-color: rgba(251, 191, 36, 0.3);
 }
 
-.timeline-year {
-  font-size: clamp(1.5rem, 4vw, 2rem);
-  font-weight: 800;
+.ano-header {
+  background: rgba(251, 191, 36, 0.1);
+  padding: clamp(15px, 3vw, 25px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(251, 191, 36, 0.2);
+}
+
+.ano-titulo {
   color: rgba(251, 191, 36, 1);
-  min-width: clamp(80px, 15vw, 100px);
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  font-weight: 800;
+  margin: 0;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.ano-contador {
+  background: rgba(251, 191, 36, 0.2);
+  color: rgba(251, 191, 36, 1);
+  padding: clamp(6px, 1vw, 8px) clamp(12px, 2.5vw, 16px);
+  border-radius: 20px;
+  font-size: clamp(12px, 2.5vw, 14px);
+  font-weight: 600;
+  border: 1px solid rgba(251, 191, 36, 0.3);
+}
+
+.trofeus-ano {
+  padding: clamp(15px, 3vw, 25px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 2.5vw, 18px);
+}
+
+.trofeu-item-timeline {
+  display: flex;
+  align-items: center;
+  gap: clamp(15px, 3vw, 20px);
+  padding: clamp(12px, 2.5vw, 18px);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.trofeu-item-timeline:hover {
+  background: rgba(251, 191, 36, 0.08);
+  border-color: rgba(251, 191, 36, 0.2);
+  transform: translateX(5px);
+}
+
+.trofeu-icon {
   flex-shrink: 0;
 }
 
-.timeline-trofeu {
-  display: flex;
-  align-items: center;
-  margin: 0 clamp(15px, 3vw, 25px);
-}
-
-.timeline-trofeu img {
-  width: clamp(35px, 8vw, 50px);
-  height: clamp(35px, 8vw, 50px);
+.trofeu-icon img {
+  width: clamp(35px, 7vw, 50px);
+  height: clamp(35px, 7vw, 50px);
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
 }
 
-.timeline-campeao {
+.trofeu-info {
   display: flex;
-  align-items: center;
-  gap: clamp(10px, 2vw, 15px);
+  flex-direction: column;
+  gap: clamp(8px, 1.5vw, 12px);
   flex-grow: 1;
-  min-width: 0;
-}
-
-.campeao-escudo {
-  width: clamp(40px, 8vw, 60px);
-  height: clamp(40px, 8vw, 60px);
-  border-radius: 50%;
-  border: 2px solid rgba(251, 191, 36, 0.3);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  flex-shrink: 0;
-}
-
-.campeao-nome {
-  color: #ffffff;
-  font-size: clamp(1rem, 3vw, 1.4rem);
-  font-weight: 600;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .tipo-badge {
   background: rgba(251, 191, 36, 0.2);
   color: rgba(251, 191, 36, 1);
   padding: clamp(4px, 1vw, 6px) clamp(8px, 2vw, 12px);
-  border-radius: 20px;
+  border-radius: 15px;
   font-size: clamp(10px, 2vw, 12px);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   border: 1px solid rgba(251, 191, 36, 0.3);
-  margin-left: clamp(10px, 2vw, 15px);
-  flex-shrink: 0;
+  align-self: flex-start;
   white-space: nowrap;
 }
 
-.legenda-cantinho {
-  position: absolute;
-  top: 20px;
-  right: 20px;
+.campeao-info {
   display: flex;
-  gap: 8px;
-  padding: 8px;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 8px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  z-index: 10;
-}
-
-.legenda-cantinho .legenda-item {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 3px;
-  padding: 4px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 6px;
-  transition: all 0.3s ease;
-  min-width: 35px;
+  gap: clamp(8px, 1.5vw, 12px);
 }
 
-.legenda-cantinho .legenda-item:hover {
-  background: rgba(251, 191, 36, 0.15);
-  transform: scale(1.05);
+.campeao-escudo-mini {
+  width: clamp(30px, 6vw, 45px);
+  height: clamp(30px, 6vw, 45px);
+  border-radius: 50%;
+  border: 2px solid rgba(251, 191, 36, 0.3);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
 }
 
-.legenda-cantinho .legenda-item img {
-  width: 16px;
-  height: 16px;
-  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.4));
-}
-
-.legenda-cantinho .legenda-item span {
+.campeao-nome-mini {
   color: #ffffff;
-  font-size: 9px;
+  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
   font-weight: 600;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
-  text-align: center;
-  line-height: 1.1;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* Responsividade da legenda */
@@ -210,34 +205,32 @@ body {
     padding: 10px;
   }
   
-  .timeline-item {
-    flex-wrap: wrap;
-    justify-content: center;
+  .ano-header {
+    flex-direction: column;
+    gap: 10px;
     text-align: center;
-    gap: 15px;
   }
   
-  .timeline-year {
-    order: 1;
+  .trofeu-item-timeline {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .trofeu-info {
+    align-items: center;
     width: 100%;
-    text-align: center;
-    min-width: auto;
   }
   
-  .timeline-trofeu {
-    order: 2;
-    margin: 0;
-  }
-  
-  .timeline-campeao {
-    order: 3;
+  .campeao-info {
     justify-content: center;
+    width: 100%;
   }
   
   .tipo-badge {
-    order: 4;
-    margin-left: 0;
-    margin-top: 5px;
+    align-self: center;
   }
   
   .legenda-cantinho {
@@ -262,17 +255,20 @@ body {
   .legenda-cantinho .legenda-item span {
     font-size: 8px;
   }
+  
+  .btn-topo {
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+  }
 }
 
 /* Mobile pequeno */
 @media (max-width: 480px) {
   .container {
     padding: 10px 8px;
-  }
-  
-  .timeline-item {
-    padding: 15px;
-    gap: 10px;
   }
   
   .navegacao {
@@ -287,12 +283,43 @@ body {
     font-size: 12px;
   }
   
-  .timeline-trofeu {
-    margin: 0;
+  .ano-container {
+    margin-bottom: 25px;
   }
   
-  .timeline-year {
-    margin-bottom: 5px;
+  .ano-header {
+    padding: 15px;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  
+  .trofeus-ano {
+    padding: 15px;
+    gap: 12px;
+  }
+  
+  .trofeu-item-timeline {
+    padding: 12px;
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .trofeu-info {
+    align-items: center;
+    width: 100%;
+  }
+  
+  .campeao-info {
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .tipo-badge {
+    align-self: center;
   }
   
   .legenda-cantinho {
@@ -302,14 +329,18 @@ body {
     gap: 5px;
     padding: 5px;
   }
+  
+  .btn-topo {
+    bottom: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
 }
 
+/* Mobile muito pequeno */
 @media (max-width: 320px) {
-  .timeline-item {
-    padding: 12px;
-    gap: 8px;
-  }
-  
   .navegacao {
     gap: 5px;
     padding: 6px;
@@ -320,23 +351,54 @@ body {
     font-size: 11px;
   }
   
-  .campeao-nome {
-    font-size: 14px;
+  .ano-header {
+    padding: 12px;
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+  
+  .trofeus-ano {
+    padding: 12px;
+    gap: 10px;
+  }
+  
+  .trofeu-item-timeline {
+    padding: 10px;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .trofeu-info {
+    align-items: center;
+    width: 100%;
+  }
+  
+  .campeao-info {
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .tipo-badge {
+    align-self: center;
   }
   
   .legenda-cantinho {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  display: flex;
-  gap: 8px;
-  padding: 8px;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 8px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  z-index: 10;
-}
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 8px;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 10;
+  }
   
   .legenda-cantinho .legenda-item {
     min-width: 25px;
@@ -392,9 +454,67 @@ body {
   transform: translateY(-1px);
 }
 
-/* Mobile */
+/* Tablets */
 @media (max-width: 768px) {
-  /* ...existing code... */
+  .container {
+    padding: 15px 10px;
+  }
+  
+  .navegacao {
+    gap: 15px;
+    padding: 10px;
+  }
+  
+  .ano-header {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  
+  .trofeu-item-timeline {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .trofeu-info {
+    align-items: center;
+    width: 100%;
+  }
+  
+  .campeao-info {
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .tipo-badge {
+    align-self: center;
+  }
+  
+  .legenda-cantinho {
+    position: static !important;
+    margin: 0 auto 20px auto;
+    justify-content: center;
+    max-width: 150px;
+    gap: 6px;
+    padding: 6px;
+  }
+  
+  .legenda-cantinho .legenda-item {
+    min-width: 30px;
+    padding: 3px;
+  }
+  
+  .legenda-cantinho .legenda-item img {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .legenda-cantinho .legenda-item span {
+    font-size: 8px;
+  }
   
   .btn-topo {
     bottom: 20px;
@@ -405,8 +525,70 @@ body {
   }
 }
 
+/* Mobile pequeno */
 @media (max-width: 480px) {
-  /* ...existing code... */
+  .container {
+    padding: 10px 8px;
+  }
+  
+  .navegacao {
+    gap: 8px;
+    padding: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .nav-link {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+  
+  .ano-container {
+    margin-bottom: 25px;
+  }
+  
+  .ano-header {
+    padding: 15px;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  
+  .trofeus-ano {
+    padding: 15px;
+    gap: 12px;
+  }
+  
+  .trofeu-item-timeline {
+    padding: 12px;
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .trofeu-info {
+    align-items: center;
+    width: 100%;
+  }
+  
+  .campeao-info {
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .tipo-badge {
+    align-self: center;
+  }
+  
+  .legenda-cantinho {
+    position: static !important;
+    margin-bottom: 15px;
+    max-width: 120px;
+    gap: 5px;
+    padding: 5px;
+  }
   
   .btn-topo {
     bottom: 15px;
@@ -414,5 +596,81 @@ body {
     width: 40px;
     height: 40px;
     font-size: 18px;
+  }
+}
+
+/* Mobile muito pequeno */
+@media (max-width: 320px) {
+  .navegacao {
+    gap: 5px;
+    padding: 6px;
+  }
+  
+  .nav-link {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+  
+  .ano-header {
+    padding: 12px;
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+  
+  .trofeus-ano {
+    padding: 12px;
+    gap: 10px;
+  }
+  
+  .trofeu-item-timeline {
+    padding: 10px;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .trofeu-info {
+    align-items: center;
+    width: 100%;
+  }
+  
+  .campeao-info {
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .tipo-badge {
+    align-self: center;
+  }
+  
+  .legenda-cantinho {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 8px;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 10;
+  }
+  
+  .legenda-cantinho .legenda-item {
+    min-width: 25px;
+    padding: 2px;
+  }
+  
+  .legenda-cantinho .legenda-item img {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .legenda-cantinho .legenda-item span {
+    font-size: 7px;
   }
 }
