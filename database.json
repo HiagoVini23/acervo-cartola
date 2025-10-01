@@ -147,5 +147,16 @@
                 "ano": 2020
             }
         ]
+    },
+    {
+        "nome": "Gian",
+        "imagem_escudo": "figures/gian.png",
+        "trofeus": [
+       
+            {
+                "tipo": "copa",
+                "ano": 2025
+            }
+        ]
     }
 ]
